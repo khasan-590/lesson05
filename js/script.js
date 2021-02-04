@@ -1,8 +1,8 @@
 "use strict";
 
-let isNumber = function(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
+// let isNumber = function(n) {
+//   return !isNaN(parseFloat(n)) && isFinite(n);
+// };
 
 let  money,  //“Доход за месяц”
   income = 'Курьер', // Дополнительный доход.
@@ -11,10 +11,16 @@ let  money,  //“Доход за месяц”
   mission = 50000, //любое число(Какую сумму хотите накопить)
   period = 6; //число от 1 до 12(месяцев)
 
+
+  function isNumbers(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+
   function start() {
     do {
       money = +prompt("Ваш месячный доход?");
-    } while (!isNumber(money));
+    } while (!isNumbers(money));
   }
    start();
 
@@ -42,7 +48,7 @@ let  money,  //“Доход за месяц”
       expenses[i] = prompt('Введите обязательную статью расходов?');
         do{
             item = parseFloat(prompt('Во сколько это обойдётся?'));
-        } while (!isNumber(item));//пока пользователь не введёт число
+        } while (!isNumbers(item));//пока пользователь не введёт число
         sum += item;
     }
     return sum;
@@ -52,16 +58,15 @@ let  money,  //“Доход за месяц”
    console.log(expens);
 
 
-  console.log(getExpensesMonth());
+  // console.log(getExpensesMonth());
   
-  let getAccumulatedMonth = function () {
-    return  money - getExpensesMonth();
-  };
+  function getAccumulatedMonth() {
+    return  money - expens;
+  }
   
 
   let accumulatedMonth = getAccumulatedMonth();
   console.log(accumulatedMonth);
-
 
   function getTargetMonth(){
     if(accumulatedMonth > 0){
@@ -73,10 +78,8 @@ let  money,  //“Доход за месяц”
   }
   getTargetMonth();
 
-
   let budgetDay = Math.floor(accumulatedMonth / 30);
   console.log(budgetDay);
-
 
 
   let getStatusIncome = function () {
