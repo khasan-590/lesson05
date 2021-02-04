@@ -34,13 +34,12 @@ let  money,  //“Доход за месяц”
 
   let expenses = [];
 
-
   function getExpensesMonth(){
-
     let sum = 0;//сумма
-    let item = 0;//временная переменная для хранения введённых данных
+    
     for(let i = 0; i < 2; i++){
-        
+      let item = 0;//временная переменная для хранения введённых данных
+      expenses[i] = prompt('Введите обязательную статью расходов?');
         do{
             item = parseFloat(prompt('Во сколько это обойдётся?'));
         } while (!isNumber(item));//пока пользователь не введёт число
@@ -49,7 +48,6 @@ let  money,  //“Доход за месяц”
     return sum;
   }
  
-
   let expens = getExpensesMonth();
    console.log(expens);
 
