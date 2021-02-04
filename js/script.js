@@ -66,16 +66,15 @@ let  money,  //“Доход за месяц”
 
 
   function getTargetMonth(){
-    let targetMonth = Math.ceil(mission/accumulatedMonth);
-    if(targetMonth > 0){
-      console.log("Цель будет достигнута через " + targetMonth + " месяцев");
+    if(accumulatedMonth > 0){
+        let targetMonth = Math.ceil(mission/accumulatedMonth);
+        console.log("Цель будет достигнута через " + targetMonth + " месяцев");
     } else  {
-      console.log("Цель не будет достигнута никогда");
+        console.log("Цель не будет достигнута");
     }
-    console.log(targetMonth);
   }
+  getTargetMonth();
 
-  
 
   let budgetDay = Math.floor(accumulatedMonth / 30);
   console.log(budgetDay);
